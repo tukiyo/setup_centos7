@@ -1,4 +1,4 @@
-centos7setup
+setup_centos7
 ============
 
 CentOS7用 共通設定
@@ -17,7 +17,7 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
 
     yum install -y git
     git clone https://github.com/tukiyo/setup_centos7.git
-    cd centos7setup/first/
+    cd ~/setup_centos7/first/
     ./run.sh
     # 10分くらいかかるので待つ。
 
@@ -35,7 +35,7 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
 
 ## 4. LAMP環境
 
-    cd centos7setup/lampp/
+    cd ~/setup_centos7/lampp/
     ./run.sh
 
 > もしCentOS6からの移行であれば、phpは5.3から5.4に上がります。
@@ -43,7 +43,21 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
 > remiリポジトリを追加していますのでphp5.5や5.6を入れられますが、
 > 本番にはremiリポジトリのものを使わないこと。
 
-設定ファイルは以下を利用すること。
+設定ファイルは以下を利用。
 
 * /etc/php.d/php_custom.ini
 * /etc/my.cnf.d/my_custom.cnf
+
+
+## 5. Zabbix Server, WebUI インストール
+
+    cd ~/setup_centos7/zabbixserver/
+    ./run.sh
+
+* なおZabbix Server, WebUIが必要な場合以下を一読してから実行。
+* [CentOS7にZabbix2.2をインストール - Qiita](http://qiita.com/tukiyo3/items/e974627fbb393037fa8a)
+* mysql = root : パスワードなしを想定。
+* Zabbixデータベース
+  * user : pass = zabbix : zabbixpassword
+* ZabbixWebUI URL = http://<IP>/zabbix
+* ZabbixWebUI = Admin : zabbix
