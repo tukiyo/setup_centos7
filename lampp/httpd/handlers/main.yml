@@ -1,3 +1,9 @@
 ---
+- name: copy httpd.conf
+  copy: >
+    src=httpd.conf
+    dest=/etc/httpd/conf/httpd.conf
+    backup=yes
+
 - name: start httpd
   service: name=httpd state=started enabled=yes

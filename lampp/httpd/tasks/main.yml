@@ -2,4 +2,5 @@
 - name: install httpd
   yum: pkg=httpd state=installed
   notify:
+    - copy httpd.conf
     - start httpd
