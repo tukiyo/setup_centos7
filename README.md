@@ -33,19 +33,6 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
 * 設定反映
   * systemctl restart network
 
-### IPv6無効
-
-IPv6が有効だと名前解決の速度が下がるため無効にする。
-
-* /etc/sysctl.conf を編集
-  * templates/sysctl.conf を参考。
-* 設定反映
-  * sysctl -p
-* 確認
-  * sysctl -a | grep disable_ipv6
-  * ip a コマンドで ipv6の項目がなくなっていることでも確認ができる。
-
-
 ## 4. LAMP環境
 
     cd centos7setup/lampp/

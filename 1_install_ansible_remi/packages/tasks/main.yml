@@ -13,3 +13,4 @@
     - lm_sensors
     - net-tools
     - screen
+    - logwatch
