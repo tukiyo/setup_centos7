@@ -1,0 +1,9 @@
+---
+- name: install mail
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - postfix
+    - postfix-perl-scripts
+    - dovecot
+    - procmail
+    - mutt

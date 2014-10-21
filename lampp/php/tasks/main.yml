@@ -1,0 +1,28 @@
+---
+- name: find {{ php_log }}
+  stat: path={{ php_log }}
+  register: result
+
+- name: create {{ php_log }}
+  file: path={{ php_log }} owner=apache group=apache mode=0644 state=touch
+  when: not result.stat.exists
+
+- name: install php
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - php
+    - php-devel
+    - php-mysqlnd
+    - php-mbstring
+    - php-gd
+    - php-cli
+  notify:
+    - restart httpd
+
+- name: copy php_custom.ini
+  copy: >
+    src=php_custom.ini
+    dest=/etc/php.d/php_custom.ini
+    backup=yes
+  notify:
+    - restart httpd

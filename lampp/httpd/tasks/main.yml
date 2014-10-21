@@ -1,0 +1,5 @@
+---
+- name: install httpd
+  yum: pkg=httpd state=installed
+  notify:
+    - start httpd

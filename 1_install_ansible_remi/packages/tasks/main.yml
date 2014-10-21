@@ -5,5 +5,11 @@
     - vim
     - git
     - tig
+    - nkf
     - zsh
     - unzip
+    - ack
+    - telnet
+    - lm_sensors
+    - net-tools
+    - screen

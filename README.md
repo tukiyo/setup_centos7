@@ -10,6 +10,7 @@ CentOS7用 共通設定
 ks/[sv]da.ks を利用。
 OSインストールが終わったら次へ。
 
+
 ## 2. ansibleインストール
 
 rootでログイン。パスワードは先ほどのkickstartに書いてある。
@@ -20,8 +21,8 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
     ./run.sh
     # 10分くらいかかるので待つ。
 
-終わったらOSを再起動。
-kernel のバージョンが 2014/10/21 では 3.10.0-123.8.1 になった。
+* 終わったらOSを再起動。2014/10/21 で kernel 3.10.0-123.8.1 になった。
+
 
 ## 3. ネットワーク設定
 
@@ -43,3 +44,14 @@ IPv6が有効だと名前解決の速度が下がるため無効にする。
 * 確認
   * sysctl -a | grep disable_ipv6
   * ip a コマンドで ipv6の項目がなくなっていることでも確認ができる。
+
+
+## 4. LAMP環境
+
+    cd centos7setup/lampp/
+    ./run.sh
+
+もしCentOS6からの移行であれば、phpは5.3から5.4に上がります。
+[PHP: 下位互換性のない変更点 - Manual](http://php.net/manual/ja/migration54.incompatible.php)を参照のこと。
+remiリポジトリを追加していますのでphp5.5や5.6を入れられますが、
+本番にはremiリポジトリのものを使わないこと。
