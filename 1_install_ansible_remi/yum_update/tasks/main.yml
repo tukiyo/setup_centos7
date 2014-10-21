@@ -1,3 +1,6 @@
 ---
 - name: upgrade all packages
   yum: name=* state=latest
+
+- name: clear cache
+  command: yum clean all

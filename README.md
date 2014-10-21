@@ -14,7 +14,8 @@ OSインストールが終わったら次へ。
 
 rootでログイン。パスワードは先ほどのkickstartに書いてある。
 
-    yum install git
+    yum install -y git
     git clone https://github.com/tukiyo/centos7setup.git
-    cd centos7setup/1_install_ansible_remi
+    cd centos7setup/1_install_ansible_remi/
     ./run.sh
+    # 10分くらいかかるので待つ。
