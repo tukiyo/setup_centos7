@@ -1,0 +1,8 @@
+---
+- name: install packages
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - vim
+    - git
+    - tig
+    - zsh

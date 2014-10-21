@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  roles:
+    - role: repos
+    - role: packages
+    - role: yum_update
