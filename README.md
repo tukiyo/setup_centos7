@@ -24,5 +24,18 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
 
 ## 3. ネットワーク設定
 
+### IP固定
+
 * /etc/sysconfig/network-scripts/ifcfg-eth0 を編集。
   * templates/ifcfg-eth0 を参考。
+
+### IPv6無効
+
+IPv6が有効だと名前解決の速度が下がるため無効にする。
+
+* /etc/sysctl.conf を編集
+  * templates/sysctl.conf を参考。
+* 設定反映
+  * sysctl -p
+* 確認
+  * sysctl -a | grep disable_ipv6
