@@ -1,7 +1,7 @@
 centos7setup
 ============
 
-centos7用当り障りのない共通設定
+CentOS7用 共通設定
 
 # 使い方
 
@@ -20,7 +20,8 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
     ./run.sh
     # 10分くらいかかるので待つ。
 
-終わったらOSを再起動。(kernel updateのため。)
+終わったらOSを再起動。
+kernel のバージョンが 2014/10/21 では 3.10.0-123.8.1 になった。
 
 ## 3. ネットワーク設定
 
@@ -28,6 +29,8 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
 
 * /etc/sysconfig/network-scripts/ifcfg-eth0 を編集。
   * templates/ifcfg-eth0 を参考。
+* 設定反映
+  * systemctl restart network
 
 ### IPv6無効
 
@@ -39,3 +42,4 @@ IPv6が有効だと名前解決の速度が下がるため無効にする。
   * sysctl -p
 * 確認
   * sysctl -a | grep disable_ipv6
+  * ip a コマンドで ipv6の項目がなくなっていることでも確認ができる。
