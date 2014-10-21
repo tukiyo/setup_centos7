@@ -1,5 +1,16 @@
 ---
 - name: install etckeeper
   yum: pkg=etckeeper state=installed
-  notify:
-    - etckeeper init
+
+
+- name: find /etc/.git/
+  stat: path=/etc/.git/
+  register: result
+
+- name: etckeeper init
+  command: etckeeper init
+  when: not result.stat.exists
+
+- name: etckeeper commit
+  command: etckeeper commit init
+  when: not result.stat.exists
