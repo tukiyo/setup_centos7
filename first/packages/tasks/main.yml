@@ -1,17 +1,24 @@
 ---
-- name: install packages
+- name: install core packages
   yum: pkg={{ item }} state=installed
   with_items:
+    - mailx
+    - net-tools
+    - screen
+    - telnet
+    - unzip
     - vim
+    - wget
+    - zip
+
+- name: install base packages 
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - ack
+    - w3m
     - git
     - tig
     - nkf
     - zsh
-    - unzip
-    - ack
-    - telnet
     - lm_sensors
-    - net-tools
-    - screen
     - logwatch
-    - mailx
