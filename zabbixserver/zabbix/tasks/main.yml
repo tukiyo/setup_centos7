@@ -1,0 +1,43 @@
+---
+- name: find {{ httpd_zabbix_conf }}
+  stat: path={{ httpd_zabbix_conf }}
+  register: result
+
+- name: install zabbix server, WebUI
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - zabbix22-server-mysql
+    - zabbix22-web
+    - zabbix22-agent
+  when: not result.stat.exists
+
+- name: copy zabbix_server.conf
+  copy: >
+    src=etc/zabbix/zabbix_server.conf
+    dest=/etc/zabbix/zabbix_server.conf
+    backup=yes
+  when: not result.stat.exists
+- name: copy httpd zabbix.conf 
+  copy: >
+    src=etc/httpd/conf.d/zabbix.conf
+    dest={{ httpd_zabbix_conf }}
+    backup=yes
+  when: not result.stat.exists
+
+- name: create zabbix database
+  command: mysqladmin --default-character-set=utf8 create zabbix
+- name: create zabbix account
+  shell: echo "grant all on zabbix.* to 'zabbix'@'localhost' identified by 'zabbix_password';" | mysql -uroot zabbix
+- name: insert schema
+  shell: mysql -uroot zabbix < /usr/share/zabbix-mysql/schema.sql
+- name: insert images
+  shell: mysql -uroot zabbix < /usr/share/zabbix-mysql/images.sql
+- name: insert data
+  shell: mysql -uroot zabbix < /usr/share/zabbix-mysql/data.sql
+
+- name: start zabbix-server-mysql
+  service: name=zabbix-server-mysql state=started enabled=yes
+  when: not result.stat.exists
+- name: start zabbix-agent
+  service: name=zabbix-agent state=started enabled=yes
+  when: not result.stat.exists

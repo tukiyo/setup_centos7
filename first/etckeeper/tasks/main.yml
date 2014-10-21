@@ -1,0 +1,5 @@
+---
+- name: install etckeeper
+  yum: pkg=etckeeper state=installed
+  notify:
+    - etckeeper init

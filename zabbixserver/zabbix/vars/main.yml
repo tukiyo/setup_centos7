@@ -1,0 +1,2 @@
+---
+httpd_zabbix_conf: /etc/httpd/conf.d/zabbix.conf

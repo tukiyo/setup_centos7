@@ -3,4 +3,6 @@
   roles:
     - role: repos
     - role: packages
+    - role: etckeeper
+    - role: zabbixagent
     - role: yum_update
