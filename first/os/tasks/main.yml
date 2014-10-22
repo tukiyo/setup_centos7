@@ -5,7 +5,7 @@
 - name: install crontab
   yum: pkg={{ item }} state=installed
   with_items:
-    - crontab
+    - crontabs
     - cronie
 
 - name: start crond
