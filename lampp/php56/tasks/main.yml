@@ -10,16 +10,16 @@
 - name: install php
   yum: pkg={{ item }} state=installed enablerepo=remi,remi-php56
   with_items:
-    - php56
-    - php56-php-devel
-    - php56-php-mysqlnd
-    - php56-php-mbstring
-    - php56-php-gd
-    - php56-php-cli
-    - php56-php-dbg
-    - php56-php-pecl-xdebug
-    - php56-php-pear
-    - php56-php-pecl-mailparse
+    - php
+    - php-devel
+    - php-mysqlnd
+    - php-mbstring
+    - php-gd
+    - php-cli
+    - php-dbg
+    - php-pecl-xdebug
+    - php-pear
+    - php-pecl-mailparse
   notify:
     - restart httpd
 
