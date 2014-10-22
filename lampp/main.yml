@@ -6,3 +6,7 @@
     #- role: php54
     - role: mariadb
     - role: mail
+
+  tasks:
+    - name: yum clean all
+      command: yum clean all

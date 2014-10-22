@@ -7,3 +7,4 @@
     - dovecot
     - procmail
     - mutt
+    - cyrus-sasl
