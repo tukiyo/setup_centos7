@@ -4,3 +4,5 @@
   notify:
     - copy httpd.conf
     - start httpd
+
+- file: path=/var/log/httpd mode=0755
