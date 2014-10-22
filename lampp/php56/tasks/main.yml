@@ -7,6 +7,11 @@
   file: path={{ php_log }} owner=apache group=apache mode=0644 state=touch
   when: not result.stat.exists
 
+- name: enable remi
+  command: yum-config-manager --enable remi
+- name: enable remi-php56
+  command: yum-config-manager --enable remi-php56
+
 - name: install php
   yum: pkg={{ item }} state=installed enablerepo=remi,remi-php56
   with_items:
