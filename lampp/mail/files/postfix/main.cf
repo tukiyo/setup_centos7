@@ -678,3 +678,21 @@ sample_directory = /usr/share/doc/postfix-2.10.1/samples
 # readme_directory: The location of the Postfix README files.
 #
 readme_directory = /usr/share/doc/postfix-2.10.1/README_FILES
+
+smtpd_sasl_type = dovecot
+smtpd_sasl_path = private/auth
+smtpd_sasl_auth_enable = yes
+smtpd_sasl_security_options = noanonymous
+smtpd_recipient_restrictions =
+  permit_mynetworks,
+  permit_sasl_authenticated,
+  permit_auth_destination,
+  reject_rbl_client all.rbl.jp,
+  reject_rbl_client bl.spamcop.net,
+  reject_rbl_client zen.spamhaus.org,
+  reject
+
+## see: http://qiita.com/tukiyo3/items/91abd80ba9fc5da1f74b
+#smtpd_use_tls = yes
+#smtpd_tls_key_file = /etc/postfix/tls/localhost.key
+#smtpd_tls_cert_file = /etc/postfix/tls/localhost.crt

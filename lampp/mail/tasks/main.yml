@@ -9,15 +9,18 @@
     - mutt
     - cyrus-sasl
 
-- name: find Maildir
-  stat: path=/etc/skel/Maildir
+- name: find /etc/dovecot/conf.d/customize.conf
+  stat: path=/etc/dovecot/conf.d/customize.conf
   register: result
 
-- name: copy main.cf
-  copy: >
-    src=main.cf
-    dest=/etc/postfix/main.cf
-    backup=yes
+- name: overwrite /etc/postfix/main.cf
+  copy: src=postfix/main.cf dest=/etc/postfix/main.cf backup=yes
   notify:
     - restart postfix
+  when: not result.stat.exists
+
+- name: put /etc/dovecot/conf.d/customize.conf
+  copy: src=dovecot/customize.conf dest=/etc/dovecot/conf.d/customize.conf
+  notify:
+    - restart dovecot
   when: not result.stat.exists
