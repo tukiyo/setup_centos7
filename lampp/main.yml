@@ -5,3 +5,4 @@
     - role: php56
     #- role: php54
     - role: mariadb
+    - role: mail
