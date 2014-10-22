@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   roles:
+    - role: os
     - role: repos
     - role: packages
     - role: etckeeper

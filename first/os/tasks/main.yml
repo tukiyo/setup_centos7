@@ -1,0 +1,12 @@
+---
+- name: set timezone Japan
+  file: src=/usr/share/zoneinfo/Japan dest=/etc/localtime state=link
+
+- name: install crontab
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - crontab
+    - cronie
+
+- name: start crond
+  service: name=crond state=started enabled=yes
