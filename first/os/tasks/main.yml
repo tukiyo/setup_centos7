@@ -10,3 +10,26 @@
 
 - name: start crond
   service: name=crond state=started enabled=yes
+
+- name: put /etc/profile.d/customize.sh
+  copy: src=customize.sh dest=/etc/profile.d/customize.sh owner=root group=root mode=0644
+
+- name: find Maildir
+  stat: path=/etc/skel/Maildir
+  register: result
+- name: create Maildir
+  file: path={{ item }} owner=root group=root mode=0755 state=directory
+  with_items:
+    - /etc/skel/Maildir/
+    - /root/Maildir/
+  when: not result.stat.exists
+- name: create Maildir
+  file: path={{ item }} owner=root group=root mode=0700 state=directory
+  with_items:
+    - /etc/skel/Maildir/cur/
+    - /etc/skel/Maildir/new/
+    - /etc/skel/Maildir/tmp/
+    - /root/Maildir/cur/
+    - /root/Maildir/new/
+    - /root/Maildir/tmp/
+  when: not result.stat.exists
