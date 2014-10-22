@@ -19,10 +19,7 @@
   notify:
     - restart httpd
 
-- name: copy php_custom.ini
-  copy: >
-    src=php_custom.ini
-    dest=/etc/php.d/php_custom.ini
-    backup=yes
+- name: put php_custom.ini
+  copy: src=php_custom.ini dest=/etc/php.d/php_custom.ini backup=yes
   notify:
     - restart httpd

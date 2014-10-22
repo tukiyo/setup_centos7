@@ -2,11 +2,8 @@
 - name: install mariadb-server
   yum: name=mariadb-server state=latest
 
-- name: copy my_custom.cnf
-  copy: >
-    src=my_custom.cnf
-    dest=/etc/my.cnf.d/my_custom.cnf
-    backup=yes
+- name: put my_custom.cnf
+  copy: src=my_custom.cnf dest=/etc/my.cnf.d/my_custom.cnf backup=yes
 
 - name: start mariadb
   service: name=mariadb state=started enabled=yes
