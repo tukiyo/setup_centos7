@@ -38,12 +38,10 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
     cd ~/setup_centos7/lampp/
     ./run.sh
 
-> もしCentOS6からの移行であれば、phpは5.3から5.4に上がります。
-> [PHP: 下位互換性のない変更点 - Manual](http://php.net/manual/ja/migration54.incompatible.php)を参照のこと。
-> remiリポジトリを追加していますのでphp5.5や5.6を入れられますが、
-> 本番にはremiリポジトリのものを使わないこと。
+* CentOS7は標準でphp5.4が入ります。remiリポジトリを利用することでphp5.6が入ります。
+  * 切り替えは ~/setup_centos7/lampp/main.yml 内を修正してください。
 
-設定ファイルは以下を利用。
+なお設定ファイルは以下を利用。
 
 * /etc/php.d/php_custom.ini
 * /etc/my.cnf.d/my_custom.cnf

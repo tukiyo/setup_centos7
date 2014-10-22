@@ -2,5 +2,6 @@
 - hosts: localhost
   roles:
     - role: httpd
-    - role: php
+    - role: php56
+    #- role: php54
     - role: mariadb
