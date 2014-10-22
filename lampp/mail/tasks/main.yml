@@ -8,3 +8,35 @@
     - procmail
     - mutt
     - cyrus-sasl
+
+
+- name: find Maildir
+  stat: path=/etc/skel/Maildir
+  register: result
+
+- name: copy main.cf
+  copy: >
+    src=main.cf
+    dest=/etc/postfix/main.cf
+    backup=yes
+  notify:
+    - restart postfix
+  when: not result.stat.exists
+
+- name: create Maildir
+  file: path={{ item }} owner=root group=root mode=0755 state=directory
+  with_items:
+    - /etc/skel/Maildir/
+    - /root/Maildir/
+  when: not result.stat.exists
+
+- name: create Maildir
+  file: path={{ item }} owner=root group=root mode=0700 state=directory
+  with_items:
+    - /etc/skel/Maildir/cur/
+    - /etc/skel/Maildir/new/
+    - /etc/skel/Maildir/tmp/
+    - /root/Maildir/cur/
+    - /root/Maildir/new/
+    - /root/Maildir/tmp/
+  when: not result.stat.exists
