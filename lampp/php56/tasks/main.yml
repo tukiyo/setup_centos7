@@ -27,10 +27,9 @@
   notify:
     - restart httpd
 
+- name: copy 15-xdebug.ini
+  copy: src=15-xdebug.ini dest=/etc/php.d/15-xdebug.ini backup=yes
 - name: copy php_custom.ini
-  copy: >
-    src=php_custom.ini
-    dest=/etc/php.d/php_custom.ini
-    backup=yes
+  copy: src=php_custom.ini dest=/etc/php.d/php_custom.ini backup=yes
   notify:
     - restart httpd
