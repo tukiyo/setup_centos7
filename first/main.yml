@@ -1,9 +1,10 @@
 ---
 - hosts: localhost
   roles:
+    - role: etckeeper
     - role: os
     - role: repos
     - role: packages
-    - role: etckeeper
+    - role: sshd
     - role: zabbixagent
     - role: yum_update

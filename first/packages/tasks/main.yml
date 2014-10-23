@@ -15,6 +15,7 @@
   yum: pkg={{ item }} state=installed
   with_items:
     - ack
+    - the_silver_searcher
     - w3m
     - git
     - tig
@@ -22,3 +23,11 @@
     - zsh
     - lm_sensors
     - logwatch
+
+- name: install base packages 
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - sshfs
+    - nfs-utils
+    - man-pages-ja
+    - puppet
