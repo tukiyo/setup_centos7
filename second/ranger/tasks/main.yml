@@ -1,0 +1,15 @@
+---
+- stat: path="/usr/bin/pip"
+  register: result_pip
+- shell: "{{ item }}"
+  with_items:
+    - easy_install pip
+  when: not result_pip.stat.exists
+
+- stat: path="/usr/bin/ranger"
+  register: result_ranger
+- shell: "{{ item }}"
+  with_items:
+    - (cd /opt/; git clone git://git.savannah.nongnu.org/ranger.git)
+    - (cd /opt/ranger/; make install)
+  when: not result_ranger.stat.exists
