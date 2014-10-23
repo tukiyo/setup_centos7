@@ -15,9 +15,9 @@ OSインストールが終わったら次へ。
 
 rootでログイン。パスワードは先ほどのkickstartに書いてある。
 
-    yum install -y git
-    git clone https://github.com/tukiyo/setup_centos7.git
-    cd ~/setup_centos7/first/
+    yum install -y git && \
+    git clone https://github.com/tukiyo/setup_centos7.git && \
+    cd ~/setup_centos7/first/ && \
     ./run.sh
     # 10分くらいかかるので待つ。
 
