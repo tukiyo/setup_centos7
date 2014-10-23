@@ -1,2 +1,3 @@
 ---
-php_log: /var/log/php.log
+php_log_dir: /var/log/php/
+php_log: /var/log/php/error.log

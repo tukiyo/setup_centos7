@@ -1,4 +1,7 @@
 ---
+- name: create {{ php_log_dir }}
+  file: path={{ php_log_dir }} owner=apache group=apache mode=0755 state=directory
+
 - name: create {{ php_log }}
   file: path={{ php_log }} owner=apache group=apache mode=0644 state=touch force=yes
 
