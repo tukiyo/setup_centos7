@@ -45,6 +45,8 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
 
 * /etc/php.d/php_custom.ini
 * /etc/my.cnf.d/my_custom.cnf
+* /etc/postfix/main.cf
+* /etc/dovecot/conf.d/customize.conf
 
 [CentOS7でCakePHP2.5を動かす - Qiita](http://qiita.com/tukiyo3/items/aea9440c32290b432a5c)
 
