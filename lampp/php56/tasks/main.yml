@@ -23,6 +23,7 @@
     - php-pecl-xdebug
     - php-pear
     - php-pecl-mailparse
+    - php-opcache
   notify:
     - restart httpd
 
