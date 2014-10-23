@@ -1,11 +1,6 @@
 ---
-- name: find {{ php_log }}
-  stat: path={{ php_log }}
-  register: result
-
 - name: create {{ php_log }}
-  file: path={{ php_log }} owner=apache group=apache mode=0644 state=touch
-  when: not result.stat.exists
+  file: path={{ php_log }} owner=apache group=apache mode=0644 state=touch force=yes
 
 - name: enable remi
   command: yum-config-manager --enable remi

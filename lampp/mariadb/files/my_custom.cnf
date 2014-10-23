@@ -1,3 +1,8 @@
 [mysqld]
 character-set-server = utf8
 innodb_file_per_table = 1
+
+# show variables like slow;
+slow_query_log=ON
+long_query_time=1
+log-slow-queries=/var/log/mariadb/slow.log
