@@ -8,5 +8,5 @@
 - name: create {{ slow_log }}
   file: path={{ slow_log }} owner=mysql group=mysql mode=0640 state=touch force=yes
 
-- name: start mariadb
-  service: name=mariadb state=started enabled=yes
+#- name: start mariadb
+#  service: name=mariadb state=started enabled=yes

@@ -2,5 +2,5 @@
 - name: install zabbix22-agent
   yum: pkg=zabbix22-agent state=installed
 
-- name: start zabbix-agent
-  service: name=zabbix-agent state=started enabled=yes
+#- name: start zabbix-agent
+#  service: name=zabbix-agent state=started enabled=yes

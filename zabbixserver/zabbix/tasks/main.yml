@@ -35,9 +35,9 @@
 - name: insert data
   shell: mysql -uroot zabbix < /usr/share/zabbix-mysql/data.sql
 
-- name: start zabbix-server-mysql
-  service: name=zabbix-server-mysql state=started enabled=yes
-  when: not result.stat.exists
-- name: start zabbix-agent
-  service: name=zabbix-agent state=started enabled=yes
-  when: not result.stat.exists
+#- name: start zabbix-server-mysql
+#  service: name=zabbix-server-mysql state=started enabled=yes
+#  when: not result.stat.exists
+#- name: start zabbix-agent
+#  service: name=zabbix-agent state=started enabled=yes
+#  when: not result.stat.exists

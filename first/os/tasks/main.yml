@@ -13,8 +13,8 @@
     - crontabs
     - cronie
 
-- name: start crond
-  service: name=crond state=started enabled=yes
+#- name: start crond
+#  service: name=crond state=started enabled=yes
 
 - name: put /etc/profile.d/customize.sh
   copy: src=customize.sh dest=/etc/profile.d/customize.sh owner=root group=root mode=0644

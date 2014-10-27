@@ -15,12 +15,12 @@
 
 - name: overwrite /etc/postfix/main.cf
   copy: src=postfix/main.cf dest=/etc/postfix/main.cf backup=yes
-  notify:
-    - restart postfix
   when: not result.stat.exists
+#  notify:
+#    - restart postfix
 
 - name: put /etc/dovecot/conf.d/customize.conf
   copy: src=dovecot/customize.conf dest=/etc/dovecot/conf.d/customize.conf
-  notify:
-    - restart dovecot
   when: not result.stat.exists
+#  notify:
+#    - restart dovecot

@@ -16,10 +16,10 @@
     - php-mbstring
     - php-gd
     - php-cli
-  notify:
-    - restart httpd
+#  notify:
+#    - restart httpd
 
 - name: put php_custom.ini
   copy: src=php_custom.ini dest=/etc/php.d/php_custom.ini backup=yes
-  notify:
-    - restart httpd
+#  notify:
+#    - restart httpd
