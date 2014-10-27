@@ -6,6 +6,9 @@
     - easy_install pip
   when: not result_pip.stat.exists
 
+- name: install make
+  yum: pkg=make state=installed
+
 - stat: path="/usr/bin/ranger"
   register: result_ranger
 - shell: "{{ item }}"
