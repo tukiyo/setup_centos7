@@ -29,7 +29,7 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
 ### IP固定
 
 * /etc/sysconfig/network-scripts/ifcfg-eth0 を編集。
-  * templates/ifcfg-eth0 を参考。
+  * files/ifcfg-eth0 を参考。
 * 設定反映
   * systemctl restart network
 
@@ -62,3 +62,8 @@ rootでログイン。パスワードは先ほどのkickstartに書いてある�
   * user : pass = zabbix : zabbixpassword
 * ZabbixWebUI URL = http://<IP>/zabbix
 * ZabbixWebUI = Admin : zabbix
+
+## 6. fluentd インストール
+
+* files/fluentd-0.10.55.tar.gz を /root/.gem/ に展開。
+  * [CentOS7にfluentdをgemでインストール - Qiita](http://qiita.com/tukiyo3/items/d8b6d6adfcd93597186e)
