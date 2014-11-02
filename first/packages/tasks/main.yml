@@ -23,6 +23,7 @@
     - zsh
     - lm_sensors
     - logwatch
+    - rsyslog
 
 - name: install base packages 
   yum: pkg={{ item }} state=installed
