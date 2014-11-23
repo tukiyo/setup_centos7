@@ -44,5 +44,14 @@ reboot
 %pre
 %end
 
-%post
+%post --log=/root/ks-post-anaconda.log
+set -x
+
+#-------------------
+# network settings
+#-------------------
+cat > /etc/sysctl.d/98-disableipv6.conf <<...
+net.ipv6.conf.all.disable_ipv6 = 1
+...
+
 %end
