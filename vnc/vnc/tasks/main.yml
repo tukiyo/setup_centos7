@@ -1,0 +1,5 @@
+---
+- name: install vnc
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - tigervnc-server

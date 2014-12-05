@@ -1,0 +1,5 @@
+---
+- name: install thunderbird
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - thunderbird

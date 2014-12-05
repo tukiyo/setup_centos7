@@ -1,0 +1,5 @@
+---
+- name: install fonts
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - vlgothic-fonts

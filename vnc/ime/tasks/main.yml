@@ -1,0 +1,5 @@
+---
+- name: install Japanese imput method
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - ibus-kkc

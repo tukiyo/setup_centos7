@@ -1,0 +1,10 @@
+---
+- name: install xfce4
+  yum: name={{ item }} state=installed
+  with_items:
+    - "@xfce"
+
+- name: install themes
+  yum: pkg={{ item }} state=installed
+  with_items:
+    - faience-icon-theme

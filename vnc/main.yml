@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  roles:
+    - role: vnc
+    - role: xfce4
+    - role: fonts
+    - role: webbrowser
+    - role: mailer
+    - role: ime
+    - role: filezilla
