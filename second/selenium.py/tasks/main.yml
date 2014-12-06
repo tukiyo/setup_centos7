@@ -1,0 +1,4 @@
+---
+- shell: "{{ item }}"
+  with_items:
+    - easy_install selenium

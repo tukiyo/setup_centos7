@@ -3,3 +3,4 @@
   roles:
     - role: ranger
     - role: packages
+    - role: selenium.py
