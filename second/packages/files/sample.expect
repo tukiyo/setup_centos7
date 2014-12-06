@@ -1,0 +1,15 @@
+#!/usr/bin/expect
+
+set timeout 3
+spawn telnet cisco 23
+
+expect "Password: "
+send "xxxxxxxx\n"
+
+expect "hostname>"
+send "en\n"
+
+expect "Password: "
+send "enablexxxx\n"
+
+interact
